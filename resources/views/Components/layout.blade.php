@@ -21,10 +21,14 @@
   />
 
   @vite('resources/css/app.css')
+  @vite('resources/js/app.js')
 </head>
 
 <body class="font-sans antialiased dark:bg-zinc-950 dark:text-white">
-  <div class="flex">
+  <div
+    id="app"
+    class="flex"
+  >
     {{-- Sidenav --}}
     <div
       class="flex h-screen w-52 flex-col justify-between border-e bg-white dark:border-zinc-800 dark:bg-zinc-900"
@@ -42,37 +46,11 @@
 
           <li>
             <x-nav-link
-              href="/about"
-              :active="request()->is('about')"
+              href="/workspaces"
+              :active="request()->is('workspaces')"
             >
-              About
+              Workspaces
             </x-nav-link>
-          </li>
-
-          <li>
-            <x-details>
-              <x-slot:title>
-                Workspaces
-              </x-slot:title>
-              <ul>
-                <li>
-                  <x-nav-link
-                    href="/"
-                    type="button"
-                  >
-                    workspace 1
-                  </x-nav-link>
-                </li>
-                <li>
-                  <x-nav-link
-                    href="/"
-                    type="button"
-                  >
-                    workspace 2
-                  </x-nav-link>
-                </li>
-              </ul>
-            </x-details>
           </li>
         </ul>
       </div>
@@ -82,7 +60,7 @@
       </div>
     </div>
     {{-- Content --}}
-    <main>
+    <main class="h-full w-full">
       {{ $slot }}
     </main>
   </div>
