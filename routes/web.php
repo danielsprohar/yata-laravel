@@ -15,6 +15,14 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+Route::get('/workspaces', function () {
+    $workspaces = Workspace::all();
+
+    return view('workspaces', [
+        'workspaces' => $workspaces
+    ]);
+});
+
 Route::get('/workspaces/{id}', function ($id) {
     $workspace = Workspace::find($id);
 
