@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Workspace;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -12,4 +13,16 @@ Route::get('/about', function () {
 
 Route::get('/contact', function () {
     return view('contact');
+});
+
+Route::get('/workspaces/{id}', function ($id) {
+    $workspace = Workspace::find($id);
+
+    if ($workspace == null) {
+        abort(404);
+    }
+
+    return view('workspace', [
+        'workspace' => $workspace
+    ]);
 });
