@@ -3,42 +3,22 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Workspace
+class Workspace extends Model
 {
     use HasFactory;
-
-    private static $workspaces = [
-        [
-            'id' => 1,
-            'name' => 'YATA',
-            'favorite' => true,
-        ],
-        [
-            'id' => 2,
-            'name' => 'AWS',
-            'favorite' => false,
-        ],
-        [
-            'id' => 3,
-            'name' => 'Spanish',
-            'favorite' => false,
-        ]
-    ];
 
     protected $fillable = [
         'name',
         'favorite'
     ];
 
-    static function find($id)
-    {
-        foreach (self::$workspaces as $workspace) {
-            if ($workspace['id'] == $id) {
-                return $workspace;
-            }
-        }
+    protected $attributes = ['favorite' => false];
 
-        return null;
+    public function projects(): HasMany
+    {
+        return $this->hasMany(Project::class);
     }
 }
