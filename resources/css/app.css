@@ -4,7 +4,7 @@
 
 @layer {
     .btn-primary {
-        @apply rounded bg-cyan-500 dark:bg-cyan-400 dark:text-black hover:dark:bg-cyan-500 px-4 py-2 text-white hover:bg-cyan-400 !important;
+        @apply rounded bg-cyan-500 dark:bg-cyan-400  hover:dark:bg-cyan-500 px-4 py-2 text-black hover:bg-cyan-400 !important;
     }
 
     .btn-icon {

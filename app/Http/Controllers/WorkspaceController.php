@@ -7,9 +7,23 @@ use Illuminate\Http\Request;
 
 class WorkspaceController extends Controller
 {
-    public function index()
+    public function create()
     {
-        $workspaces = Workspace::all();
+        return view('workspaces.create');
+    }
+
+    public function store(Request $request)
+    {
+        // TODO: create workspace
+
+        return redirect('/workspaces');
+    }
+
+    public function index(Request $request)
+    {
+        $size = $request->query('size', 10);
+
+        $workspaces = Workspace::paginate($size);
 
         return view('workspaces.index', [
             'workspaces' => $workspaces

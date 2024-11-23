@@ -1,12 +1,35 @@
 <x-layout>
+  {{-- <Modal /> --}}
   <div class="mx-auto flex max-w-5xl flex-col gap-y-4 p-4">
-    <h1 class="text-2xl font-bold">Workspaces</h1>
+    <div class="flex items-center gap-x-2">
+      <h1 class="text-2xl font-bold">Workspaces</h1>
+      <a
+        href="/workspaces/create"
+        aria-label="Create workspace"
+        title="Create workspace"
+        class="btn-icon"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 4.5v15m7.5-7.5h-15"
+          />
+        </svg>
+      </a>
+    </div>
 
     <div
       class="overflow-x-auto rounded-lg border border-gray-200 dark:border-zinc-800"
     >
       <table
-        class="min-w-full divide-y-2 divide-gray-200 text-left text-sm dark:divide-zinc-700 dark:bg-zinc-900"
+        class="min-w-full divide-y-2 divide-zinc-200 text-left text-sm dark:divide-zinc-700 dark:bg-zinc-900"
       >
         <thead>
           <tr>
@@ -24,7 +47,7 @@
           </tr>
         </thead>
 
-        <tbody class="divide-y divide-zinc-200">
+        <tbody class="divide-y divide-zinc-200 dark:divide-zinc-700">
           @foreach ($workspaces as $workspace)
             <tr>
               <td
@@ -55,6 +78,9 @@
 
         </tbody>
       </table>
+    </div>
+    <div>
+      {{ $workspaces->links() }}
     </div>
   </div>
 </x-layout>
