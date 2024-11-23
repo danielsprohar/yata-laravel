@@ -7,23 +7,23 @@ use Illuminate\Http\Request;
 
 class WorkspaceController extends Controller
 {
-    public function all()
+    public function index()
     {
         $workspaces = Workspace::all();
 
-        return view('workspaces', [
+        return view('workspaces.index', [
             'workspaces' => $workspaces
         ]);
     }
 
-    public function findById($id)
+    public function show($id)
     {
         $workspace = Workspace::find($id);
         if ($workspace == null) {
             abort(404);
         }
 
-        return view('workspace', [
+        return view('workspaces.show', [
             'workspace' => $workspace
         ]);
     }

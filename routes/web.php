@@ -16,6 +16,6 @@ Route::get('/contact', function () {
 });
 
 Route::prefix('/workspaces')->group(function () {
-    Route::get('/', [WorkspaceController::class, 'all']);
-    Route::get('/{id}', [WorkspaceController::class, 'findById']);
+    Route::get('/', [WorkspaceController::class, 'index']);
+    Route::get('/{id}', [WorkspaceController::class, 'show']);
 });
