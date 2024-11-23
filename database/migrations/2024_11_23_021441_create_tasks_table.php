@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('title', 512);
             $table->dateTimeTz('due_date')
                 ->nullable();
-            $table->enum('priority', ['none', 'low', 'medium', 'high'])
-                ->default('none');
+            $table->unsignedInteger('priority')
+                ->default(0);
             $table->string('rrule', 512)
                 ->nullable();
             $table->boolean('completed')

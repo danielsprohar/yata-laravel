@@ -19,14 +19,12 @@ class TaskFactory extends Factory
      */
     public function definition(): array
     {
-        $priorityOptions = ['none', 'low', 'medium', 'high'];
-
         return [
             'title' => fake()->sentence(),
             'completed' => fake()->boolean(),
             'all_day' => false,
             'due_date' => fake()->iso8601(),
-            'priority' => $priorityOptions[random_int(0, 3)],
+            'priority' => random_int(0, 3),
         ];
     }
 }
