@@ -4,22 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Workspace extends Model
+class Section extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'favorite'
-    ];
+    protected $fillable = ['name', 'project_id'];
 
-    protected $attributes = ['favorite' => false];
-
-    public function projects(): HasMany
+    public function project(): BelongsTo
     {
-        return $this->hasMany(Project::class);
+        return $this->belongsTo(Project::class);
     }
 
     public function tasks(): HasMany
