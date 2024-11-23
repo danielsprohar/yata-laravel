@@ -6,4 +6,11 @@
     .btn-primary {
         @apply rounded bg-cyan-500 dark:bg-cyan-400 dark:text-black hover:dark:bg-cyan-500 px-4 py-2 text-xs font-medium text-white hover:bg-cyan-400;
     }
+
+    .btn-icon {
+        @apply flex h-6 w-6 items-center justify-center rounded-full bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700;
+    }
+    .btn-icon svg {
+        @apply size-4;
+    }
 }
