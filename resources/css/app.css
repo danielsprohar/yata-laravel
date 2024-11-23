@@ -4,13 +4,18 @@
 
 @layer {
     .btn-primary {
-        @apply rounded bg-cyan-500 dark:bg-cyan-400 dark:text-black hover:dark:bg-cyan-500 px-4 py-2 text-xs font-medium text-white hover:bg-cyan-400;
+        @apply rounded bg-cyan-500 dark:bg-cyan-400 dark:text-black hover:dark:bg-cyan-500 px-4 py-2 text-white hover:bg-cyan-400 !important;
     }
 
     .btn-icon {
         @apply flex h-6 w-6 items-center justify-center rounded-full bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700;
     }
+
     .btn-icon svg {
         @apply size-4;
+    }
+
+    .input {
+        @apply mt-1 block w-full rounded-md bg-zinc-100 dark:bg-zinc-900 dark:text-white border-transparent focus:border-gray-500 focus:bg-inherit focus:ring-0 !important;
     }
 }
