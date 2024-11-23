@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('name', 128);
             $table->timestamps();
 
-            $table->unsignedBigInteger('workspace_id');
             $table->foreignIdFor(Workspace::class, 'workspace_id')
                 ->cascadeOnDelete();
         });
