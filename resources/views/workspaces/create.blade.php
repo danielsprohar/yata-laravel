@@ -13,18 +13,18 @@
           <label for="workspaceName">Name</label>
           <input
             type="text"
-            name="workspaceName"
-            id="workspaceName"
+            name="name"
+            id="name"
             class="input"
             autocomplete="off"
-            minlength="1"
+            maxlength="128"
             required
           />
-          @if ($errors->has('name.length'))
+          @error('name')
             <div class="error">
-              {{ $errors->first('name.length') }}
+              {{ $message }}
             </div>
-          @endif
+          @enderror
         </div>
 
         <button

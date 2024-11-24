@@ -26,23 +26,15 @@ class WorkspaceController extends Controller
 
     public function store()
     {
-        $workspaceName = request('workspaceName');
-        $nameLength = strlen($workspaceName);
-        if ($nameLength < 1) {
-            return redirect('/workspaces/create')
-                ->withErrors([
-                    'name.length' => 'Name is required'
-                ]);
-        }
-        if ($nameLength > 128) {
-            return redirect('/workspaces/create')
-                ->withErrors([
-                    'name.length' => 'Name must be less than 128 characters'
-                ]);
-        }
+        request()->validate([
+            'name' => ['required', 'max:128']
+        ], [
+            'name.required' => 'Name is required',
+            'name.max' => 'Name must be less than or equal to 128 characters',
+        ]);
 
         $workspace = Workspace::create([
-            'name' => $workspaceName
+            'name' => request('name')
         ]);
 
         return redirect('/workspaces/' . $workspace->id);
