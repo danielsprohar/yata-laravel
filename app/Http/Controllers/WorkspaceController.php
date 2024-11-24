@@ -36,7 +36,7 @@ class WorkspaceController extends Controller
         $workspace->name = request('name');
         $workspace->save();
 
-        return redirect('/workspaces' . $workspace->id);
+        return redirect('/workspaces/' . $workspace->id);
     }
 
     public function destroy(Workspace $workspace)

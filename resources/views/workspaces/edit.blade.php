@@ -4,11 +4,12 @@
 
     <x-card>
       <form
-        action="/workspaces"
+        action="/workspaces/{{ $workspace->id }}"
         method="POST"
         class="flex flex-col gap-y-4"
       >
         @csrf
+        @method('PATCH')
         <div class="flex flex-col gap-y-1">
           <label for="workspaceName">Name</label>
           <input

@@ -8,10 +8,11 @@
       </p>
       <form
         class="w-full"
-        action=""
+        action="/workspaces/{{ $workspace->id }}"
         method="POST"
       >
         @csrf
+        @method('DELETE')
         <button
           type="submit"
           class="btn-danger w-full"
