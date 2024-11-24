@@ -12,14 +12,32 @@ class WorkspaceController extends Controller
         return view('workspaces.create');
     }
 
-    public function remove()
+    public function remove(Workspace $workspace)
     {
-        return view('workspaces.remove');
+        return view('workspaces.remove', ['workspace' => $workspace]);
     }
 
-    public function destroy($id)
+    public function edit(Workspace $workspace)
     {
-        $workspace = Workspace::findOrFail($id);
+        return view('workspaces.edit', [
+            'workspace' => $workspace,
+        ]);
+    }
+
+    public function update(Workspace $workspace)
+    {
+        request()->validate([
+            'name' => ['required', 'max:128']
+        ], [
+            'name.required' => 'Name is required',
+            'name.max' => 'Name must be less than or equal to 128 characters',
+        ]);
+
+        return redirect('/workspaces' . $workspace->id);
+    }
+
+    public function destroy(Workspace $workspace)
+    {
         $workspace->delete();
         return redirect('/workspaces');
     }
@@ -51,12 +69,12 @@ class WorkspaceController extends Controller
         ]);
     }
 
-    public function show($id)
+    public function show(Workspace $workspace)
     {
-        $workspace = Workspace::find($id);
-        if ($workspace == null) {
-            abort(404);
-        }
+        // $workspace = Workspace::find($id);
+        // if ($workspace == null) {
+        //     abort(404);
+        // }
 
         return view('workspaces.show', [
             'workspace' => $workspace

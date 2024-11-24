@@ -1,6 +1,6 @@
 <x-layout>
   <div class="mx-auto flex max-w-5xl flex-col gap-y-4 p-4">
-    <h1 class="text-2xl font-bold">Delete Workspace</h1>
+    <h1 class="text-2xl font-bold">Delete Workspace: {{ $workspace->name }}</h1>
     <div>
       <p class="mb-4">
         You will lose all data that is associated with this
