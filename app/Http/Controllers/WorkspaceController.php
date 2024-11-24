@@ -74,11 +74,6 @@ class WorkspaceController extends Controller
 
     public function show(Workspace $workspace)
     {
-        // $workspace = Workspace::find($id);
-        // if ($workspace == null) {
-        //     abort(404);
-        // }
-
         return view('workspaces.show', [
             'workspace' => $workspace
         ]);
