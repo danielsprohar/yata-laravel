@@ -61,7 +61,14 @@
                 {{ $workspace['name'] }}
               </td>
               <td>
-                <div class="flex items-center gap-x-1">
+                <div class="flex items-center justify-end gap-x-1 pr-2">
+                  <a
+                    class="hover:underline"
+                    href="/workspaces/{{ $workspace['id'] }}/edit"
+                  >
+                    Edit
+                  </a>
+                  <span>&vert;</span>
                   <a
                     class="hover:underline"
                     href="/workspaces/{{ $workspace['id'] }}"
@@ -70,7 +77,7 @@
                   </a>
                   <span>&vert;</span>
                   <a
-                    href="/workspaces/{{ $workspace['id']}}/delete"
+                    href="/workspaces/{{ $workspace['id'] }}/delete"
                     class="hover:underline"
                   >
                     Delete

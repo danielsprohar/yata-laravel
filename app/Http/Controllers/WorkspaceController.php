@@ -33,6 +33,9 @@ class WorkspaceController extends Controller
             'name.max' => 'Name must be less than or equal to 128 characters',
         ]);
 
+        $workspace->name = request('name');
+        $workspace->save();
+
         return redirect('/workspaces' . $workspace->id);
     }
 
