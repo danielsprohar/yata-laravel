@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer {
+    .btn {
+        @apply px-2 py-2 rounded bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-900 dark:hover:bg-zinc-800 !important;
+    }
+
     .btn-primary {
         @apply rounded bg-cyan-500 dark:bg-cyan-400  hover:dark:bg-cyan-500 px-4 py-2 text-black hover:bg-cyan-400 !important;
     }
