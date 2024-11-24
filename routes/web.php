@@ -17,6 +17,8 @@ Route::get('/contact', function () {
 
 Route::prefix('/workspaces')->group(function () {
     Route::get('/', [WorkspaceController::class, 'index']);
+    Route::post('/', [WorkspaceController::class, 'store']);
     Route::get('/create', [WorkspaceController::class, 'create']);
     Route::get('/{id}', [WorkspaceController::class, 'show']);
+    Route::get('/{id}/delete', [WorkspaceController::class, 'remove']);
 });

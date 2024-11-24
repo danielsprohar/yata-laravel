@@ -12,18 +12,47 @@ class WorkspaceController extends Controller
         return view('workspaces.create');
     }
 
-    public function store(Request $request)
+    public function remove()
     {
-        // TODO: create workspace
+        return view('workspaces.remove');
+    }
 
+    public function destroy($id)
+    {
+        $workspace = Workspace::findOrFail($id);
+        $workspace->delete();
         return redirect('/workspaces');
+    }
+
+    public function store()
+    {
+        $workspaceName = request('workspaceName');
+        $nameLength = strlen($workspaceName);
+        if ($nameLength < 1) {
+            return redirect('/workspaces/create')
+                ->withErrors([
+                    'name.length' => 'Name is required'
+                ]);
+        }
+        if ($nameLength > 128) {
+            return redirect('/workspaces/create')
+                ->withErrors([
+                    'name.length' => 'Name must be less than 128 characters'
+                ]);
+        }
+
+        $workspace = Workspace::create([
+            'name' => $workspaceName
+        ]);
+
+        return redirect('/workspaces/' . $workspace->id);
     }
 
     public function index(Request $request)
     {
         $size = $request->query('size', 10);
 
-        $workspaces = Workspace::paginate($size);
+        $workspaces = Workspace::latest()->paginate($size);
 
         return view('workspaces.index', [
             'workspaces' => $workspaces

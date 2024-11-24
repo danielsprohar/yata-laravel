@@ -4,10 +4,11 @@
 
     <x-card>
       <form
-        action="store"
+        action="/workspaces"
         method="POST"
         class="flex flex-col gap-y-4"
       >
+        @csrf
         <div class="flex flex-col gap-y-1">
           <label for="workspaceName">Name</label>
           <input
@@ -16,7 +17,14 @@
             id="workspaceName"
             class="input"
             autocomplete="off"
+            minlength="1"
+            required
           />
+          @if ($errors->has('name.length'))
+            <div class="error">
+              {{ $errors->first('name.length') }}
+            </div>
+          @endif
         </div>
 
         <button

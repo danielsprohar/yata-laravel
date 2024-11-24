@@ -31,7 +31,7 @@
   >
     {{-- Sidenav --}}
     <div
-      class="flex h-screen w-52 flex-col justify-between border-e bg-white dark:border-zinc-800 dark:bg-zinc-900"
+      class="flex h-screen w-60 flex-col justify-between border-e bg-white dark:border-zinc-800 dark:bg-zinc-900"
     >
       <div class="px-2 py-4">
         <ul class="mt-6 space-y-1">

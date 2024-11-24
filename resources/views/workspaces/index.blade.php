@@ -69,9 +69,12 @@
                     View
                   </a>
                   <span>&vert;</span>
-                  <button class="hover:underline">
+                  <a
+                    href="/workspaces/{{ $workspace['id']}}/delete"
+                    class="hover:underline"
+                  >
                     Delete
-                  </button>
+                  </a>
                 </div>
               </td>
           @endforeach
