@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreWorkspaceRequest;
+use App\Http\Requests\UpdateWorkspaceRequest;
 use App\Models\Workspace;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class WorkspaceController extends Controller
@@ -24,16 +27,10 @@ class WorkspaceController extends Controller
         ]);
     }
 
-    public function update(Workspace $workspace)
+    public function update(UpdateWorkspaceRequest $request, Workspace $workspace)
     {
-        request()->validate([
-            'name' => ['required', 'max:128']
-        ], [
-            'name.required' => 'Name is required',
-            'name.max' => 'Name must be less than or equal to 128 characters',
-        ]);
-
-        $workspace->name = request('name');
+        $validated = $request->validated();
+        $workspace->name = $validated['name'];
         $workspace->save();
 
         return redirect('/workspaces/' . $workspace->id);
@@ -45,17 +42,11 @@ class WorkspaceController extends Controller
         return redirect('/workspaces');
     }
 
-    public function store()
+    public function store(StoreWorkspaceRequest $request): RedirectResponse
     {
-        request()->validate([
-            'name' => ['required', 'max:128']
-        ], [
-            'name.required' => 'Name is required',
-            'name.max' => 'Name must be less than or equal to 128 characters',
-        ]);
-
+        $validated = $request->validated();
         $workspace = Workspace::create([
-            'name' => request('name')
+            'name' => $validated['name']
         ]);
 
         return redirect('/workspaces/' . $workspace->id);
