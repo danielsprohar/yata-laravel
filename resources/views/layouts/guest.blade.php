@@ -28,14 +28,35 @@
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans antialiased dark:bg-zinc-950 dark:text-white">
-  <div
-    id="app"
-    class="flex min-h-screen flex-col items-center sm:justify-center sm:pt-0"
-  >
-    <x-card class="w-full sm:max-w-md">
+<body
+  id="app"
+  class="font-sans antialiased dark:bg-zinc-950 dark:text-white"
+>
+  <nav class="bg-zinc-800">
+    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div class="relative flex h-16 items-center justify-end">
+        <div class="flex space-x-4">
+          <a
+            href="/login"
+            class="rounded-md bg-cyan-500 px-3 py-2 text-sm font-medium text-black hover:bg-cyan-400"
+          >
+            Sign in
+          </a>
+          <a
+            href="/register"
+            class="rounded-md px-3 py-2 text-sm font-medium text-zinc-300 hover:bg-zinc-700 hover:text-white"
+          >
+            Sign up
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="flex min-h-screen flex-col items-center justify-center p-2">
+    <div class="w-full sm:max-w-md">
       {{ $slot }}
-    </x-card>
+    </div>
   </div>
 </body>
 
