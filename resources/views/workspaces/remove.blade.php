@@ -1,4 +1,4 @@
-<x-layout>
+<x-app-layout>
   <div class="mx-auto flex max-w-5xl flex-col gap-y-4 p-4">
     <h1 class="text-2xl font-bold">Delete Workspace: {{ $workspace->name }}</h1>
     <div>
@@ -22,4 +22,4 @@
       </form>
     </div>
   </div>
-</x-layout>
+</x-app-layout>

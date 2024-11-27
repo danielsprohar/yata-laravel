@@ -1,4 +1,4 @@
-<x-layout>
+<x-app-layout>
   <div class="flex flex-col gap-y-4">
     <h1 class="text-2xl font-bold">Workspace</h1>
     <div class="flow-root">
@@ -29,4 +29,4 @@
       <a href="/workspaces">Back to list</a>
     </div>
   </div>
-</x-layout>
+</x-app-layout>

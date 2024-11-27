@@ -1,4 +1,4 @@
-<x-layout>
+<x-app-layout>
   <div class="mx-auto flex max-w-5xl flex-col gap-y-4 p-4">
     <h1 class="text-2xl font-bold">Create Workspace</h1>
 
@@ -27,13 +27,28 @@
           @enderror
         </div>
 
-        <button
-          type="submit"
-          class="btn-primary"
-        >
-          Create
-        </button>
+        <div class="flex items-center justify-end gap-x-2">
+          <button
+            form="cancelForm"
+            aria-label="Cancel"
+            class="btn"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="btn-primary"
+            aria-label="Create workspace"
+          >
+            Create
+          </button>
+        </div>
       </form>
+      <form
+        id="cancelForm"
+        action="/workspaces"
+        method="get"
+      ></form>
     </x-card>
   </div>
-</x-layout>
+</x-app-layout>

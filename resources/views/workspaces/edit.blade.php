@@ -1,4 +1,4 @@
-<x-layout>
+<x-app-layout>
   <div class="mx-auto flex max-w-5xl flex-col gap-y-4 p-4">
     <h1 class="text-2xl font-bold">Edit Workspace</h1>
 
@@ -31,7 +31,7 @@
 
         <div class="flex items-center justify-end gap-x-2">
           <a
-            href="/workspaces/{{ $workspace->id }}"
+            href="/workspaces"
             class="btn"
           >
             Cancel
@@ -47,4 +47,4 @@
       </form>
     </x-card>
   </div>
-</x-layout>
+</x-app-layout>
