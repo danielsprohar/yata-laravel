@@ -38,13 +38,13 @@
         <div class="flex space-x-4">
           <a
             href="/login"
-            class="rounded-md bg-cyan-500 px-3 py-2 text-sm font-medium text-black hover:bg-cyan-400"
+            class="btn-primary"
           >
             Sign in
           </a>
           <a
             href="/register"
-            class="rounded-md px-3 py-2 text-sm font-medium text-zinc-300 hover:bg-zinc-700 hover:text-white"
+            class="btn-primary"
           >
             Sign up
           </a>

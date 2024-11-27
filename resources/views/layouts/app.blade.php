@@ -28,13 +28,14 @@
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans antialiased dark:bg-zinc-950 dark:text-white">
-  <div
-    id="app"
-    class="flex"
-  >
-    @include('layouts.navigation')
+<body
+  id="app"
+  class="flex font-sans antialiased dark:bg-zinc-950 dark:text-white"
+>
+  <x-sidebar />
 
+  <!-- Page Content -->
+  <main class="h-full w-full">
     <!-- Page Heading -->
     @isset($header)
       <header class="bg-white shadow dark:bg-gray-800">
@@ -43,12 +44,8 @@
         </div>
       </header>
     @endisset
-
-    <!-- Page Content -->
-    <main>
-      {{ $slot }}
-    </main>
-  </div>
+    {{ $slot }}
+  </main>
 </body>
 
 </html>
