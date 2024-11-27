@@ -5,12 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WorkspaceController;
 
 Route::get('/', function () {
-    return view('home');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return view('inbox');
+})->middleware(['auth', 'verified'])->name('inbox');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -26,8 +22,7 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-// Route::resource('workspaces', WorkspaceController::class);
-Route::controller(WorkspaceController::class)->group(function () {
+Route::middleware('auth')->controller(WorkspaceController::class)->group(function () {
     Route::prefix('/workspaces')->group(function () {
         Route::get('/',  'index');
         Route::post('/', 'store');
