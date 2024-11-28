@@ -30,12 +30,9 @@
 
 <body
   id="yata-app"
-  class="flex font-sans antialiased dark:bg-zinc-950 dark:text-white"
+  class="flex h-full w-full font-sans antialiased dark:bg-zinc-950 dark:text-white"
 >
-  <x-sidebar />
-
-  <!-- Page Content -->
-  <main class="h-full w-full">
+  <x-sidebar>
     <!-- Page Heading -->
     @isset($header)
       <header>
@@ -45,7 +42,7 @@
       </header>
     @endisset
     {{ $slot }}
-  </main>
+  </x-sidebar>
 </body>
 
 </html>

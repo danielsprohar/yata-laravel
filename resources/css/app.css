@@ -28,7 +28,7 @@
     }
 
     .input {
-        @apply mt-1 block w-full rounded-md bg-zinc-100 dark:bg-zinc-900 dark:text-white border-transparent focus:border-gray-500 focus:bg-inherit focus:ring-0 !important;
+        @apply mt-1 block w-full rounded-md bg-inherit dark:text-white border !important;
     }
 
     .select {

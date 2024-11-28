@@ -1,6 +1,6 @@
 <details class="group [&_summary::-webkit-details-marker]:hidden">
   <summary
-    class="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 hover:bg-gray-100 dark:hover:bg-zinc-800"
+    class="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-800"
   >
     <span class="text-sm font-medium">
       {{ $title }}

@@ -1,6 +1,6 @@
 <x-guest-layout>
-  <h1 class="mb-4 text-center text-2xl font-bold">Sign in</h1>
   <x-card>
+    <h1 class="mb-4 text-center text-2xl font-bold">Sign in</h1>
     <!-- Session Status -->
     <x-auth-session-status
       class="mb-4"
