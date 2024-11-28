@@ -1,5 +1,5 @@
 <x-app-layout>
-  <div class="mx-auto flex max-w-5xl flex-col gap-y-4 p-4">
+  <div class="container">
     <h1 class="text-2xl font-bold">Create Workspace</h1>
 
     <x-card>
