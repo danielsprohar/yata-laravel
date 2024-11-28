@@ -66,11 +66,11 @@
           <input
             id="remember_me"
             type="checkbox"
-            class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800"
             name="remember"
+            class="rounded border border-zinc-600 bg-inherit"
           >
           <span
-            class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
+            class="ms-2 text-sm text-zinc-600 dark:text-zinc-400">{{ __('Remember me') }}</span>
         </label>
       </div>
 
