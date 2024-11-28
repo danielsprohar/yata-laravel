@@ -2,9 +2,9 @@
 
 namespace App\Enums;
 
-enum ProjectView
+enum ProjectView: string
 {
-    case BOARD;
-    case LIST;
-    case MATRIX;
+    case BOARD = "BOARD";
+    case LIST = "LIST";
+    case MATRIX = "MATRIX";
 }
