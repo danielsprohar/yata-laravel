@@ -33,10 +33,10 @@
         </div>
 
         <div class="flex flex-col">
-          <label for="projectView">View</label>
+          <label for="view">View</label>
           <select
-            id="projectView"
-            name="projectView"
+            id="view"
+            name="view"
             class="select"
           >
             @foreach ($viewOptions as $option)
