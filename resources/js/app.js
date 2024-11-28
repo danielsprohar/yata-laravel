@@ -5,4 +5,4 @@ import Modal from "./components/Modal.vue";
 const app = createApp();
 app.component("Greeting", Greeting);
 app.component("Modal", Modal);
-app.mount("#app");
+// app.mount("#yata-app");

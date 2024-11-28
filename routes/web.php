@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WorkspaceController;
 
@@ -34,5 +35,18 @@ Route::middleware('auth')->controller(WorkspaceController::class)->group(functio
         Route::get('/{workspace}/delete',  'remove');
     });
 });
+
+Route::get('/workspaces/{workspace}/create/project', [ProjectController::class, 'create'])
+    ->middleware('auth')
+    ->name('projects.create');
+
+Route::post('/projects', [ProjectController::class, 'store'])
+    ->middleware('auth')
+    ->name('projects.show');
+
+Route::get('/projects/{project}', [ProjectController::class, 'show'])
+    ->middleware('auth')
+    ->name('projects.show');
+
 
 require __DIR__ . '/auth.php';

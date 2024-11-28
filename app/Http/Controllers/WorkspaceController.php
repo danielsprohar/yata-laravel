@@ -66,7 +66,8 @@ class WorkspaceController extends Controller
     public function show(Workspace $workspace)
     {
         return view('workspaces.show', [
-            'workspace' => $workspace
+            'workspace' => $workspace,
+            'projects' => $workspace->projects,
         ]);
     }
 }
