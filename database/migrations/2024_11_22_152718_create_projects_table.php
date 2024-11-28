@@ -15,6 +15,12 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('name', 128);
+            $table->enum('view', [
+                'BOARD',
+                'LIST',
+                'MATRIX'
+            ]);
+
             $table->timestamps();
 
             $table->foreignIdFor(Workspace::class, 'workspace_id')

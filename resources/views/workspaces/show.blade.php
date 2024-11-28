@@ -90,9 +90,14 @@
 
     <div class="flex items-center gap-4">
       @foreach ($workspace->projects as $project)
-        <x-card>
-          {{ $project->name }}
-        </x-card>
+        <a
+          href="/projects/{{ $project->id }}"
+          class="hover:bg-zinc-100 hover:dark:bg-zinc-800"
+        >
+          <x-card>
+            {{ $project->name }}
+          </x-card>
+        </a>
       @endforeach
     </div>
   </div>
