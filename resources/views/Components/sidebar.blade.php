@@ -31,7 +31,7 @@
         <li>
           <x-nav-link
             href="/"
-            :active="request()->is('/')"
+            :active="request()->is('inbox')"
           >
             <div class="flex items-center gap-x-2">
               <svg
