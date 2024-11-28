@@ -45,10 +45,7 @@ class ProjectController extends Controller implements HasMiddleware
     {
         $attributes = $request->validated();
         $workspace = Workspace::findOrFail($request['workspaceId']);
-        $project = $workspace->projects()->create([
-            'name' => $attributes['name'],
-            'view' => $attributes['view']
-        ]);
+        $project = $workspace->projects()->create($attributes);
 
         return redirect('/projects/' . $project->id);
     }

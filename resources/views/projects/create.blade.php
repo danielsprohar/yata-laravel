@@ -1,11 +1,14 @@
 <x-app-layout>
   <div class="container">
-    <h1 class="text-2xl font-bold">Create Project</h1>
+    <h1 class="text-2xl font-bold">{{ $workspace->name }}</h1>
+
     <x-card class="mt-4">
+      <h2 class="text-2xl font-bold">Create Project</h2>
+
       <form
         action="/projects"
         method="post"
-        class="flex flex-col gap-y-4"
+        class="mt-4 flex flex-col gap-y-4"
       >
         @csrf
         <input
@@ -16,7 +19,7 @@
           value="{{ $workspace->id }}"
         />
 
-        <div>
+        <div class="flex flex-col gap-x-2">
           <x-input-label
             for="name"
             :value="__('Name')"
@@ -30,6 +33,11 @@
             required
             autofocus
           />
+          @error('name')
+            <div class="error">
+              {{ $message }}
+            </div>
+          @enderror
         </div>
 
         <div class="flex flex-col">
@@ -41,12 +49,15 @@
           >
             @foreach ($viewOptions as $option)
               <option value="{{ $option }}">
-                <span class="uppercase">
-                  {{ $option }}
-                </span>
+                {{ $option }}
               </option>
             @endforeach
           </select>
+          @error('view')
+            <div class="error">
+              {{ $message }}
+            </div>
+          @enderror
         </div>
 
         <div class="mt-4 flex items-center justify-end gap-x-2">

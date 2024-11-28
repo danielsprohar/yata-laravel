@@ -5,7 +5,16 @@ use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WorkspaceController;
 
+// TODO: Create a welcome page
 Route::redirect('/', '/inbox');
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
 
 Route::get('/inbox', function () {
     return view('inbox');
@@ -15,14 +24,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-Route::get('/about', function () {
-    return view('about');
-});
-
-Route::get('/contact', function () {
-    return view('contact');
 });
 
 Route::middleware('auth')->controller(WorkspaceController::class)->group(function () {
@@ -44,7 +45,7 @@ Route::get('/workspaces/{workspace}/create/project', [ProjectController::class, 
 
 Route::post('/projects', [ProjectController::class, 'store'])
     ->middleware('auth')
-    ->name('projects.show');
+    ->name('projects.store');
 
 Route::get('/projects/{project}', [ProjectController::class, 'show'])
     ->middleware('auth')
