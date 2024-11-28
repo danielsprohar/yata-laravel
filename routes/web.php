@@ -5,7 +5,9 @@ use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WorkspaceController;
 
-Route::get('/', function () {
+Route::redirect('/', '/inbox');
+
+Route::get('/inbox', function () {
     return view('inbox');
 })->middleware(['auth', 'verified'])->name('inbox');
 
